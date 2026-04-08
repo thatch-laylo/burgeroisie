@@ -23,21 +23,18 @@ export function formatMemberName(memberId: string, memberMap: Record<string, { n
 }
 
 export const SCORE_TIERS = {
-  GOLD: 85,
-  GREEN: 70,
-  AMBER: 40,
+  GREEN: 85,
+  YELLOW: 70,
 } as const;
 
 export function getScoreColor(score: number): string {
-  if (score >= SCORE_TIERS.GOLD) return "text-amber-400";
   if (score >= SCORE_TIERS.GREEN) return "text-green-500";
-  if (score >= SCORE_TIERS.AMBER) return "text-amber-500";
+  if (score >= SCORE_TIERS.YELLOW) return "text-amber-400";
   return "text-red-500";
 }
 
 export function getScoreBgColor(score: number): string {
-  if (score >= SCORE_TIERS.GOLD) return "bg-amber-400";
   if (score >= SCORE_TIERS.GREEN) return "bg-green-500";
-  if (score >= SCORE_TIERS.AMBER) return "bg-amber-500";
+  if (score >= SCORE_TIERS.YELLOW) return "bg-amber-400";
   return "bg-red-500";
 }

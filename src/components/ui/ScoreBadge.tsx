@@ -9,17 +9,14 @@ export function ScoreBadge({
   score: number;
   size?: "sm" | "md" | "lg";
 }) {
-  const isGold = score >= SCORE_TIERS.GOLD;
   const isGreen = score >= SCORE_TIERS.GREEN;
-  const isAmber = score >= SCORE_TIERS.AMBER;
+  const isYellow = score >= SCORE_TIERS.YELLOW;
 
-  const colorClass = isGold
-    ? "bg-amber-400/15 text-amber-400 ring-amber-400/30"
-    : isGreen
-      ? "bg-green-500/15 text-green-500 ring-green-500/30"
-      : isAmber
-        ? "bg-amber-500/15 text-amber-500 ring-amber-500/30"
-        : "bg-red-500/15 text-red-500 ring-red-500/30";
+  const colorClass = isGreen
+    ? "bg-green-500/15 text-green-500 ring-green-500/30"
+    : isYellow
+      ? "bg-amber-400/15 text-amber-400 ring-amber-400/30"
+      : "bg-red-500/15 text-red-500 ring-red-500/30";
 
   const sizeClass =
     size === "lg"
@@ -30,7 +27,7 @@ export function ScoreBadge({
 
   return (
     <span
-      className={`inline-flex items-center rounded-lg font-mono font-bold ring-1 ${colorClass} ${sizeClass} ${isGold ? "score-glow" : ""}`}
+      className={`inline-flex items-center rounded-lg font-mono font-bold ring-1 ${colorClass} ${sizeClass}`}
     >
       {score.toFixed(1)}
     </span>
