@@ -22,7 +22,7 @@ export default async function VisitDetailPage({
 
   const memberMap = Object.fromEntries(members.map((m) => [m.id, m]));
   const sortedScores = [...visit.scores].sort(
-    (a, b) => b.totalScore - a.totalScore
+    (a, b) => b.score - a.score
   );
 
   return (
@@ -85,17 +85,9 @@ export default async function VisitDetailPage({
                       {name}
                     </span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <span className="text-text-muted">
-                      Burger: <span className="font-mono text-text-primary">{score.burgerScore}</span>
-                    </span>
-                    <span className="text-text-muted">
-                      Vibe: <span className="font-mono text-text-primary">{score.ambianceScore}</span>
-                    </span>
-                    <ScoreBadge score={score.totalScore} size="sm" />
-                  </div>
+                  <ScoreBadge score={score.score} size="sm" />
                 </div>
-                <ScoreBar score={score.totalScore} delay={i * 0.1} />
+                <ScoreBar score={score.score} delay={i * 0.1} />
               </div>
             );
           })}

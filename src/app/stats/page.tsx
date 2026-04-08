@@ -27,11 +27,11 @@ export default async function StatsPage() {
 
   const allScores = visits.flatMap((v) => v.scores);
   const highestIndividual = allScores.reduce(
-    (max, s) => (s.totalScore > max.totalScore ? s : max),
+    (max, s) => (s.score > max.score ? s : max),
     allScores[0]
   );
   const lowestIndividual = allScores.reduce(
-    (min, s) => (s.totalScore < min.totalScore ? s : min),
+    (min, s) => (s.score < min.score ? s : min),
     allScores[0]
   );
 
@@ -61,7 +61,7 @@ export default async function StatsPage() {
     const scores = allScores.filter((s) => s.memberId === m.id);
     const avg =
       scores.length > 0
-        ? scores.reduce((sum, s) => sum + s.totalScore, 0) / scores.length
+        ? scores.reduce((sum, s) => sum + s.score, 0) / scores.length
         : 0;
     return { member: m, avg, count: scores.length };
   }).filter((m) => m.count > 0);
@@ -78,14 +78,14 @@ export default async function StatsPage() {
     v.scores.some(
       (s) =>
         s.memberId === highestIndividual.memberId &&
-        s.totalScore === highestIndividual.totalScore
+        s.score === highestIndividual.score
     )
   );
   const lowScoreVisit = visits.find((v) =>
     v.scores.some(
       (s) =>
         s.memberId === lowestIndividual.memberId &&
-        s.totalScore === lowestIndividual.totalScore
+        s.score === lowestIndividual.score
     )
   );
 
@@ -162,7 +162,7 @@ export default async function StatsPage() {
             {formatMemberName(highestIndividual.memberId, memberMap).name}
           </p>
           <p className="font-mono text-2xl font-bold text-amber-400 mt-1">
-            {highestIndividual.totalScore}
+            {highestIndividual.score}
           </p>
           <p className="text-xs text-text-muted mt-1">
             {highScoreVisit ? `at ${highScoreVisit.restaurantName}` : ""}
@@ -176,7 +176,7 @@ export default async function StatsPage() {
             {formatMemberName(lowestIndividual.memberId, memberMap).name}
           </p>
           <p className="font-mono text-2xl font-bold text-red-500 mt-1">
-            {lowestIndividual.totalScore}
+            {lowestIndividual.score}
           </p>
           <p className="text-xs text-text-muted mt-1">
             {lowScoreVisit ? `at ${lowScoreVisit.restaurantName}` : ""}

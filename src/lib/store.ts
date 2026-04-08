@@ -94,7 +94,7 @@ export async function createVisit(
   const averageScore =
     input.scores.length > 0
       ? Math.round(
-          (input.scores.reduce((sum, s) => sum + s.burgerScore + s.ambianceScore, 0) /
+          (input.scores.reduce((sum, s) => sum + s.score, 0) /
             input.scores.length) *
             10
         ) / 10
@@ -130,7 +130,7 @@ export async function updateVisit(
     visit.averageScore =
       visit.scores.length > 0
         ? Math.round(
-            (visit.scores.reduce((sum, s) => sum + s.burgerScore + s.ambianceScore, 0) /
+            (visit.scores.reduce((sum, s) => sum + s.score, 0) /
               visit.scores.length) *
               10
           ) / 10

@@ -7,9 +7,7 @@ export interface Member {
 
 export interface MemberScore {
   memberId: string;
-  burgerScore: number; // 0-90
-  ambianceScore: number; // 0-10
-  totalScore: number; // burgerScore + ambianceScore
+  score: number; // 0-100
 }
 
 export interface Comment {

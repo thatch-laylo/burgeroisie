@@ -7,8 +7,7 @@ import confetti from "canvas-confetti";
 
 interface ScoreEntry {
   memberId: string;
-  burgerScore: number;
-  ambianceScore: number;
+  score: number;
   active: boolean;
 }
 
@@ -29,8 +28,7 @@ export function VisitForm({ members }: { members: Member[] }) {
   const [scores, setScores] = useState<ScoreEntry[]>(
     members.map((m) => ({
       memberId: m.id,
-      burgerScore: 70,
-      ambianceScore: 5,
+      score: 75,
       active: true,
     }))
   );
@@ -45,18 +43,14 @@ export function VisitForm({ members }: { members: Member[] }) {
     setGuests((prev) => [...prev, { id, name: guestName.trim() }]);
     setScores((prev) => [
       ...prev,
-      { memberId: id, burgerScore: 70, ambianceScore: 5, active: true },
+      { memberId: id, score: 75, active: true },
     ]);
     setGuestName("");
   }
 
-  function updateScore(
-    memberId: string,
-    field: "burgerScore" | "ambianceScore",
-    value: number
-  ) {
+  function updateScore(memberId: string, value: number) {
     setScores((prev) =>
-      prev.map((s) => (s.memberId === memberId ? { ...s, [field]: value } : s))
+      prev.map((s) => (s.memberId === memberId ? { ...s, score: value } : s))
     );
   }
 
@@ -68,14 +62,10 @@ export function VisitForm({ members }: { members: Member[] }) {
     );
   }
 
-  function getTotal(s: ScoreEntry) {
-    return s.burgerScore + s.ambianceScore;
-  }
-
   const activeScores = scores.filter((s) => s.active);
   const avgScore =
     activeScores.length > 0
-      ? activeScores.reduce((sum, s) => sum + getTotal(s), 0) /
+      ? activeScores.reduce((sum, s) => sum + s.score, 0) /
         activeScores.length
       : 0;
 
@@ -107,8 +97,7 @@ export function VisitForm({ members }: { members: Member[] }) {
           burgerDescription,
           scores: activeScores.map((s) => ({
             memberId: s.memberId,
-            burgerScore: s.burgerScore,
-            ambianceScore: s.ambianceScore,
+            score: s.score,
           })),
         }),
       });
@@ -244,7 +233,6 @@ export function VisitForm({ members }: { members: Member[] }) {
           {allMembers.map((member) => {
             const scoreEntry = scores.find((s) => s.memberId === member.id);
             if (!scoreEntry) return null;
-            const total = getTotal(scoreEntry);
 
             return (
               <div
@@ -286,61 +274,31 @@ export function VisitForm({ members }: { members: Member[] }) {
                   </button>
                   {scoreEntry.active && (
                     <span className="font-mono text-lg font-bold text-accent-gold">
-                      {total}
+                      {scoreEntry.score}
                     </span>
                   )}
                 </div>
 
                 {scoreEntry.active && (
-                  <div className="space-y-3">
-                    <div>
-                      <div className="flex justify-between text-sm mb-1">
-                        <span className="text-text-muted">
-                          &#x1F354; Burger
-                        </span>
-                        <span className="font-mono text-text-primary">
-                          {scoreEntry.burgerScore}/90
-                        </span>
-                      </div>
-                      <input
-                        type="range"
-                        min={0}
-                        max={90}
-                        value={scoreEntry.burgerScore}
-                        onChange={(e) =>
-                          updateScore(
-                            member.id,
-                            "burgerScore",
-                            Number(e.target.value)
-                          )
-                        }
-                        className="w-full accent-accent-gold"
-                      />
+                  <div>
+                    <div className="flex justify-between text-sm mb-1">
+                      <span className="text-text-muted">
+                        Score
+                      </span>
+                      <span className="font-mono text-text-primary">
+                        {scoreEntry.score}/100
+                      </span>
                     </div>
-                    <div>
-                      <div className="flex justify-between text-sm mb-1">
-                        <span className="text-text-muted">
-                          &#x1F378; Ambiance
-                        </span>
-                        <span className="font-mono text-text-primary">
-                          {scoreEntry.ambianceScore}/10
-                        </span>
-                      </div>
-                      <input
-                        type="range"
-                        min={0}
-                        max={10}
-                        value={scoreEntry.ambianceScore}
-                        onChange={(e) =>
-                          updateScore(
-                            member.id,
-                            "ambianceScore",
-                            Number(e.target.value)
-                          )
-                        }
-                        className="w-full accent-accent-gold"
-                      />
-                    </div>
+                    <input
+                      type="range"
+                      min={0}
+                      max={100}
+                      value={scoreEntry.score}
+                      onChange={(e) =>
+                        updateScore(member.id, Number(e.target.value))
+                      }
+                      className="w-full accent-accent-gold"
+                    />
                   </div>
                 )}
               </div>
@@ -417,7 +375,7 @@ export function VisitForm({ members }: { members: Member[] }) {
                   <span className="text-sm">
                     {member?.emoji} {member?.name}
                   </span>
-                  <span className="font-mono font-bold">{getTotal(s)}</span>
+                  <span className="font-mono font-bold">{s.score}</span>
                 </div>
               );
             })}

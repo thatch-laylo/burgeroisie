@@ -22,9 +22,14 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Visit not found" }, { status: 404 });
   }
 
-  const photoId = await uploadPhoto(file, visitId, uploadedBy, caption);
-  await updateVisit(visitId, { photoIds: [...visit.photoIds, photoId] });
-
-  revalidatePath(`/visits/${visitId}`);
-  return NextResponse.json({ photoId }, { status: 201 });
+  try {
+    const photoId = await uploadPhoto(file, visitId, uploadedBy, caption);
+    await updateVisit(visitId, { photoIds: [...visit.photoIds, photoId] });
+    revalidatePath(`/visits/${visitId}`);
+    return NextResponse.json({ photoId }, { status: 201 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error("Photo upload failed:", message);
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 }

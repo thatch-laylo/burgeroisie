@@ -11,13 +11,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: parsed.error.issues }, { status: 400 });
   }
 
-  const { scores, ...rest } = parsed.data;
-  const scoredMembers = scores.map((s) => ({
-    ...s,
-    totalScore: s.burgerScore + s.ambianceScore,
-  }));
-
-  const visit = await createVisit({ ...rest, scores: scoredMembers });
+  const visit = await createVisit(parsed.data);
   revalidatePath("/visits");
   revalidatePath("/scoreboard");
   revalidatePath("/stats");

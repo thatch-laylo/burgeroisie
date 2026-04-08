@@ -2,8 +2,7 @@ import { z } from "zod/v4";
 
 export const memberScoreSchema = z.object({
   memberId: z.string().min(1),
-  burgerScore: z.number().int().min(0).max(90),
-  ambianceScore: z.number().int().min(0).max(10),
+  score: z.number().int().min(0).max(100),
 });
 
 export const createVisitSchema = z.object({

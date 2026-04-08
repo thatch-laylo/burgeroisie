@@ -16,6 +16,7 @@ export function CommentSection({
   const [text, setText] = useState("");
   const [memberId, setMemberId] = useState(members[0]?.id || "");
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const memberMap = Object.fromEntries(members.map((m) => [m.id, m]));
 
@@ -24,6 +25,7 @@ export function CommentSection({
     if (!text.trim() || !memberId) return;
 
     setSubmitting(true);
+    setError("");
     try {
       const res = await fetch("/api/comments", {
         method: "POST",
@@ -34,7 +36,12 @@ export function CommentSection({
         const comment = await res.json();
         setComments((prev) => [...prev, comment]);
         setText("");
+      } else {
+        const data = await res.json().catch(() => null);
+        setError(data?.error ? JSON.stringify(data.error) : `Failed (${res.status})`);
       }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Network error");
     } finally {
       setSubmitting(false);
     }
@@ -72,6 +79,10 @@ export function CommentSection({
           );
         })}
       </div>
+
+      {error && (
+        <p className="text-red-400 text-sm mb-3">{error}</p>
+      )}
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <div className="flex gap-3">

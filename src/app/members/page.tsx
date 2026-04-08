@@ -16,14 +16,14 @@ export default async function MembersPage() {
     const memberScores = visits.flatMap((v) =>
       v.scores.filter((s) => s.memberId === member.id)
     );
-    const totalScores = memberScores.map((s) => s.totalScore);
+    const scores = memberScores.map((s) => s.score);
     const avg =
-      totalScores.length > 0
-        ? totalScores.reduce((a, b) => a + b, 0) / totalScores.length
+      scores.length > 0
+        ? scores.reduce((a, b) => a + b, 0) / scores.length
         : 0;
-    const highest = totalScores.length > 0 ? Math.max(...totalScores) : 0;
-    const lowest = totalScores.length > 0 ? Math.min(...totalScores) : 0;
-    const reviewCount = totalScores.length;
+    const highest = scores.length > 0 ? Math.max(...scores) : 0;
+    const lowest = scores.length > 0 ? Math.min(...scores) : 0;
+    const reviewCount = scores.length;
 
     return { member, avg, highest, lowest, reviewCount };
   });

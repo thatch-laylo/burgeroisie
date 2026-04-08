@@ -1,11 +1,41 @@
 {
   "members": [
-    { "id": "thatch", "name": "Thatch", "emoji": "\ud83c\udf54", "isGuest": false },
-    { "id": "ramin", "name": "Ramin", "emoji": "\ud83d\udd25", "isGuest": false },
-    { "id": "jackie", "name": "Jackie", "emoji": "\ud83d\udc51", "isGuest": false },
-    { "id": "timbo", "name": "Timbo", "emoji": "\ud83c\udfaf", "isGuest": false },
-    { "id": "skyler", "name": "Skyler", "emoji": "\u26a1", "isGuest": false },
-    { "id": "vvp", "name": "VVP", "emoji": "\ud83c\udfb8", "isGuest": false }
+    {
+      "id": "thatch",
+      "name": "Thatch",
+      "emoji": "🍔",
+      "isGuest": false
+    },
+    {
+      "id": "ramin",
+      "name": "Ramin",
+      "emoji": "🔥",
+      "isGuest": false
+    },
+    {
+      "id": "jackie",
+      "name": "Jackie",
+      "emoji": "👑",
+      "isGuest": false
+    },
+    {
+      "id": "timbo",
+      "name": "Timbo",
+      "emoji": "🎯",
+      "isGuest": false
+    },
+    {
+      "id": "skyler",
+      "name": "Skyler",
+      "emoji": "⚡",
+      "isGuest": false
+    },
+    {
+      "id": "vvp",
+      "name": "VVP",
+      "emoji": "🎸",
+      "isGuest": false
+    }
   ],
   "visits": [
     {
@@ -15,15 +45,42 @@
       "address": "",
       "date": "2025-04-08",
       "scores": [
-        { "memberId": "thatch", "burgerScore": 87, "ambianceScore": 0, "totalScore": 87 },
-        { "memberId": "ramin", "burgerScore": 83, "ambianceScore": 0, "totalScore": 83 }
+        {
+          "memberId": "thatch",
+          "score": 87
+        },
+        {
+          "memberId": "ramin",
+          "score": 83
+        }
       ],
-      "averageScore": 85.0,
-      "comments": [],
-      "photoIds": [],
+      "averageScore": 85,
+      "comments": [
+        {
+          "id": "7b78ff75-7ea6-4643-b746-907c212cff99",
+          "memberId": "thatch",
+          "text": "Test comment from CLI",
+          "createdAt": "2026-04-08T04:19:56.052Z"
+        },
+        {
+          "id": "320c30b5-8840-4e7b-b7da-5f912c3d39ee",
+          "memberId": "thatch",
+          "text": "Second test",
+          "createdAt": "2026-04-08T04:21:32.369Z"
+        },
+        {
+          "id": "08fb31f7-4c93-40c0-ae66-00cda2d6f899",
+          "memberId": "thatch",
+          "text": "Browser simulation test",
+          "createdAt": "2026-04-08T04:26:43.839Z"
+        }
+      ],
+      "photoIds": [
+        "9f277bd3-e9ad-41a7-89e4-0d4f301cfca4"
+      ],
       "burgerDescription": "",
       "createdAt": "2025-04-08T20:00:00Z",
-      "updatedAt": "2025-04-08T20:00:00Z"
+      "updatedAt": "2026-04-08T04:26:43.839Z"
     },
     {
       "id": "v-002",
@@ -32,10 +89,22 @@
       "address": "",
       "date": "2025-04-29",
       "scores": [
-        { "memberId": "jackie", "burgerScore": 64, "ambianceScore": 0, "totalScore": 64 },
-        { "memberId": "skyler", "burgerScore": 65, "ambianceScore": 0, "totalScore": 65 },
-        { "memberId": "thatch", "burgerScore": 61, "ambianceScore": 0, "totalScore": 61 },
-        { "memberId": "ramin", "burgerScore": 71, "ambianceScore": 0, "totalScore": 71 }
+        {
+          "memberId": "jackie",
+          "score": 64
+        },
+        {
+          "memberId": "skyler",
+          "score": 65
+        },
+        {
+          "memberId": "thatch",
+          "score": 61
+        },
+        {
+          "memberId": "ramin",
+          "score": 71
+        }
       ],
       "averageScore": 65.25,
       "comments": [],
@@ -51,10 +120,16 @@
       "address": "",
       "date": "2025-05-20",
       "scores": [
-        { "memberId": "thatch", "burgerScore": 77, "ambianceScore": 0, "totalScore": 77 },
-        { "memberId": "ramin", "burgerScore": 87, "ambianceScore": 0, "totalScore": 87 }
+        {
+          "memberId": "thatch",
+          "score": 77
+        },
+        {
+          "memberId": "ramin",
+          "score": 87
+        }
       ],
-      "averageScore": 82.0,
+      "averageScore": 82,
       "comments": [],
       "photoIds": [],
       "burgerDescription": "",
@@ -68,10 +143,16 @@
       "address": "",
       "date": "2025-06-10",
       "scores": [
-        { "memberId": "thatch", "burgerScore": 89, "ambianceScore": 0, "totalScore": 89 },
-        { "memberId": "ramin", "burgerScore": 79, "ambianceScore": 0, "totalScore": 79 }
+        {
+          "memberId": "thatch",
+          "score": 89
+        },
+        {
+          "memberId": "ramin",
+          "score": 79
+        }
       ],
-      "averageScore": 84.0,
+      "averageScore": 84,
       "comments": [],
       "photoIds": [],
       "burgerDescription": "",
@@ -85,11 +166,20 @@
       "address": "",
       "date": "2025-07-01",
       "scores": [
-        { "memberId": "jackie", "burgerScore": 89, "ambianceScore": 0, "totalScore": 89 },
-        { "memberId": "ramin", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 },
-        { "memberId": "thatch", "burgerScore": 84, "ambianceScore": 0, "totalScore": 84 }
+        {
+          "memberId": "jackie",
+          "score": 89
+        },
+        {
+          "memberId": "ramin",
+          "score": 88
+        },
+        {
+          "memberId": "thatch",
+          "score": 84
+        }
       ],
-      "averageScore": 87.0,
+      "averageScore": 87,
       "comments": [],
       "photoIds": [],
       "burgerDescription": "",
@@ -103,12 +193,24 @@
       "address": "",
       "date": "2025-07-22",
       "scores": [
-        { "memberId": "timbo", "burgerScore": 65, "ambianceScore": 0, "totalScore": 65 },
-        { "memberId": "ramin", "burgerScore": 81, "ambianceScore": 0, "totalScore": 81 },
-        { "memberId": "thatch", "burgerScore": 69, "ambianceScore": 0, "totalScore": 69 },
-        { "memberId": "guest-gabe", "burgerScore": 69, "ambianceScore": 0, "totalScore": 69 }
+        {
+          "memberId": "timbo",
+          "score": 65
+        },
+        {
+          "memberId": "ramin",
+          "score": 81
+        },
+        {
+          "memberId": "thatch",
+          "score": 69
+        },
+        {
+          "memberId": "guest-gabe",
+          "score": 69
+        }
       ],
-      "averageScore": 71.0,
+      "averageScore": 71,
       "comments": [],
       "photoIds": [],
       "burgerDescription": "",
@@ -122,12 +224,24 @@
       "address": "",
       "date": "2025-08-12",
       "scores": [
-        { "memberId": "thatch", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 },
-        { "memberId": "timbo", "burgerScore": 81, "ambianceScore": 0, "totalScore": 81 },
-        { "memberId": "ramin", "burgerScore": 86, "ambianceScore": 0, "totalScore": 86 },
-        { "memberId": "jackie", "burgerScore": 85, "ambianceScore": 0, "totalScore": 85 }
+        {
+          "memberId": "thatch",
+          "score": 88
+        },
+        {
+          "memberId": "timbo",
+          "score": 81
+        },
+        {
+          "memberId": "ramin",
+          "score": 86
+        },
+        {
+          "memberId": "jackie",
+          "score": 85
+        }
       ],
-      "averageScore": 85.0,
+      "averageScore": 85,
       "comments": [],
       "photoIds": [],
       "burgerDescription": "",
@@ -141,11 +255,26 @@
       "address": "",
       "date": "2025-09-02",
       "scores": [
-        { "memberId": "thatch", "burgerScore": 64, "ambianceScore": 0, "totalScore": 64 },
-        { "memberId": "timbo", "burgerScore": 74, "ambianceScore": 0, "totalScore": 74 },
-        { "memberId": "jackie", "burgerScore": 68, "ambianceScore": 0, "totalScore": 68 },
-        { "memberId": "ramin", "burgerScore": 74, "ambianceScore": 0, "totalScore": 74 },
-        { "memberId": "guest-pat", "burgerScore": 89, "ambianceScore": 0, "totalScore": 89 }
+        {
+          "memberId": "thatch",
+          "score": 64
+        },
+        {
+          "memberId": "timbo",
+          "score": 74
+        },
+        {
+          "memberId": "jackie",
+          "score": 68
+        },
+        {
+          "memberId": "ramin",
+          "score": 74
+        },
+        {
+          "memberId": "guest-pat",
+          "score": 89
+        }
       ],
       "averageScore": 73.8,
       "comments": [],
@@ -161,10 +290,22 @@
       "address": "",
       "date": "2025-09-23",
       "scores": [
-        { "memberId": "thatch", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 },
-        { "memberId": "timbo", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 },
-        { "memberId": "jackie", "burgerScore": 89, "ambianceScore": 0, "totalScore": 89 },
-        { "memberId": "ramin", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 }
+        {
+          "memberId": "thatch",
+          "score": 88
+        },
+        {
+          "memberId": "timbo",
+          "score": 88
+        },
+        {
+          "memberId": "jackie",
+          "score": 89
+        },
+        {
+          "memberId": "ramin",
+          "score": 88
+        }
       ],
       "averageScore": 88.25,
       "comments": [],
@@ -180,10 +321,22 @@
       "address": "",
       "date": "2025-10-14",
       "scores": [
-        { "memberId": "thatch", "burgerScore": 74, "ambianceScore": 0, "totalScore": 74 },
-        { "memberId": "timbo", "burgerScore": 74, "ambianceScore": 0, "totalScore": 74 },
-        { "memberId": "jackie", "burgerScore": 85, "ambianceScore": 0, "totalScore": 85 },
-        { "memberId": "ramin", "burgerScore": 72, "ambianceScore": 0, "totalScore": 72 }
+        {
+          "memberId": "thatch",
+          "score": 74
+        },
+        {
+          "memberId": "timbo",
+          "score": 74
+        },
+        {
+          "memberId": "jackie",
+          "score": 85
+        },
+        {
+          "memberId": "ramin",
+          "score": 72
+        }
       ],
       "averageScore": 76.25,
       "comments": [],
@@ -199,14 +352,32 @@
       "address": "",
       "date": "2025-11-04",
       "scores": [
-        { "memberId": "timbo", "burgerScore": 87, "ambianceScore": 0, "totalScore": 87 },
-        { "memberId": "thatch", "burgerScore": 86, "ambianceScore": 0, "totalScore": 86 },
-        { "memberId": "jackie", "burgerScore": 78, "ambianceScore": 0, "totalScore": 78 },
-        { "memberId": "ramin", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 },
-        { "memberId": "skyler", "burgerScore": 85, "ambianceScore": 0, "totalScore": 85 },
-        { "memberId": "guest-mccracken", "burgerScore": 74, "ambianceScore": 0, "totalScore": 74 }
+        {
+          "memberId": "timbo",
+          "score": 87
+        },
+        {
+          "memberId": "thatch",
+          "score": 86
+        },
+        {
+          "memberId": "jackie",
+          "score": 78
+        },
+        {
+          "memberId": "ramin",
+          "score": 88
+        },
+        {
+          "memberId": "skyler",
+          "score": 85
+        },
+        {
+          "memberId": "guest-mccracken",
+          "score": 74
+        }
       ],
-      "averageScore": 83.0,
+      "averageScore": 83,
       "comments": [],
       "photoIds": [],
       "burgerDescription": "",
@@ -220,12 +391,24 @@
       "address": "",
       "date": "2025-11-25",
       "scores": [
-        { "memberId": "guest-rome", "burgerScore": 76, "ambianceScore": 0, "totalScore": 76 },
-        { "memberId": "thatch", "burgerScore": 66, "ambianceScore": 0, "totalScore": 66 },
-        { "memberId": "jackie", "burgerScore": 75, "ambianceScore": 0, "totalScore": 75 },
-        { "memberId": "timbo", "burgerScore": 79, "ambianceScore": 0, "totalScore": 79 }
+        {
+          "memberId": "guest-rome",
+          "score": 76
+        },
+        {
+          "memberId": "thatch",
+          "score": 66
+        },
+        {
+          "memberId": "jackie",
+          "score": 75
+        },
+        {
+          "memberId": "timbo",
+          "score": 79
+        }
       ],
-      "averageScore": 74.0,
+      "averageScore": 74,
       "comments": [],
       "photoIds": [],
       "burgerDescription": "",
@@ -239,14 +422,32 @@
       "address": "",
       "date": "2025-12-16",
       "scores": [
-        { "memberId": "thatch", "burgerScore": 90, "ambianceScore": 1, "totalScore": 91 },
-        { "memberId": "guest-mo", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 },
-        { "memberId": "vvp", "burgerScore": 90, "ambianceScore": 2, "totalScore": 92 },
-        { "memberId": "jackie", "burgerScore": 85, "ambianceScore": 0, "totalScore": 85 },
-        { "memberId": "skyler", "burgerScore": 90, "ambianceScore": 5, "totalScore": 95 },
-        { "memberId": "guest-katz", "burgerScore": 77, "ambianceScore": 0, "totalScore": 77 }
+        {
+          "memberId": "thatch",
+          "score": 91
+        },
+        {
+          "memberId": "guest-mo",
+          "score": 88
+        },
+        {
+          "memberId": "vvp",
+          "score": 92
+        },
+        {
+          "memberId": "jackie",
+          "score": 85
+        },
+        {
+          "memberId": "skyler",
+          "score": 95
+        },
+        {
+          "memberId": "guest-katz",
+          "score": 77
+        }
       ],
-      "averageScore": 88.0,
+      "averageScore": 88,
       "comments": [],
       "photoIds": [],
       "burgerDescription": "",
@@ -260,11 +461,26 @@
       "address": "",
       "date": "2026-01-13",
       "scores": [
-        { "memberId": "thatch", "burgerScore": 90, "ambianceScore": 2, "totalScore": 92 },
-        { "memberId": "vvp", "burgerScore": 87, "ambianceScore": 0, "totalScore": 87 },
-        { "memberId": "jackie", "burgerScore": 89, "ambianceScore": 0, "totalScore": 89 },
-        { "memberId": "ramin", "burgerScore": 90, "ambianceScore": 0, "totalScore": 90 },
-        { "memberId": "timbo", "burgerScore": 90, "ambianceScore": 5, "totalScore": 95 }
+        {
+          "memberId": "thatch",
+          "score": 92
+        },
+        {
+          "memberId": "vvp",
+          "score": 87
+        },
+        {
+          "memberId": "jackie",
+          "score": 89
+        },
+        {
+          "memberId": "ramin",
+          "score": 90
+        },
+        {
+          "memberId": "timbo",
+          "score": 95
+        }
       ],
       "averageScore": 90.6,
       "comments": [],
@@ -280,10 +496,16 @@
       "address": "",
       "date": "2026-02-03",
       "scores": [
-        { "memberId": "jackie", "burgerScore": 90, "ambianceScore": 2, "totalScore": 92 },
-        { "memberId": "ramin", "burgerScore": 90, "ambianceScore": 4, "totalScore": 94 }
+        {
+          "memberId": "jackie",
+          "score": 92
+        },
+        {
+          "memberId": "ramin",
+          "score": 94
+        }
       ],
-      "averageScore": 93.0,
+      "averageScore": 93,
       "comments": [],
       "photoIds": [],
       "burgerDescription": "",
@@ -297,10 +519,22 @@
       "address": "",
       "date": "2026-02-24",
       "scores": [
-        { "memberId": "jackie", "burgerScore": 90, "ambianceScore": 5, "totalScore": 95 },
-        { "memberId": "ramin", "burgerScore": 90, "ambianceScore": 6, "totalScore": 96 },
-        { "memberId": "timbo", "burgerScore": 90, "ambianceScore": 5, "totalScore": 95 },
-        { "memberId": "vvp", "burgerScore": 90, "ambianceScore": 3, "totalScore": 93 }
+        {
+          "memberId": "jackie",
+          "score": 95
+        },
+        {
+          "memberId": "ramin",
+          "score": 96
+        },
+        {
+          "memberId": "timbo",
+          "score": 95
+        },
+        {
+          "memberId": "vvp",
+          "score": 93
+        }
       ],
       "averageScore": 94.75,
       "comments": [],
@@ -316,11 +550,20 @@
       "address": "",
       "date": "2026-03-17",
       "scores": [
-        { "memberId": "thatch", "burgerScore": 86, "ambianceScore": 0, "totalScore": 86 },
-        { "memberId": "vvp", "burgerScore": 85, "ambianceScore": 0, "totalScore": 85 },
-        { "memberId": "ramin", "burgerScore": 84, "ambianceScore": 0, "totalScore": 84 }
+        {
+          "memberId": "thatch",
+          "score": 86
+        },
+        {
+          "memberId": "vvp",
+          "score": 85
+        },
+        {
+          "memberId": "ramin",
+          "score": 84
+        }
       ],
-      "averageScore": 85.0,
+      "averageScore": 85,
       "comments": [],
       "photoIds": [],
       "burgerDescription": "",
@@ -334,19 +577,39 @@
       "address": "",
       "date": "2026-04-07",
       "scores": [
-        { "memberId": "skyler", "burgerScore": 84, "ambianceScore": 0, "totalScore": 84 },
-        { "memberId": "ramin", "burgerScore": 83, "ambianceScore": 0, "totalScore": 83 },
-        { "memberId": "timbo", "burgerScore": 79, "ambianceScore": 0, "totalScore": 79 },
-        { "memberId": "guest-greg", "burgerScore": 75, "ambianceScore": 0, "totalScore": 75 },
-        { "memberId": "vvp", "burgerScore": 87, "ambianceScore": 0, "totalScore": 87 },
-        { "memberId": "thatch", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 }
+        {
+          "memberId": "skyler",
+          "score": 84
+        },
+        {
+          "memberId": "ramin",
+          "score": 83
+        },
+        {
+          "memberId": "timbo",
+          "score": 79
+        },
+        {
+          "memberId": "guest-greg",
+          "score": 75
+        },
+        {
+          "memberId": "vvp",
+          "score": 87
+        },
+        {
+          "memberId": "thatch",
+          "score": 88
+        }
       ],
       "averageScore": 82.67,
       "comments": [],
-      "photoIds": [],
+      "photoIds": [
+        "9542e1a6-da5a-474b-8306-a9c9a39f74bb"
+      ],
       "burgerDescription": "",
       "createdAt": "2026-04-07T20:00:00Z",
-      "updatedAt": "2026-04-07T20:00:00Z"
+      "updatedAt": "2026-04-08T04:26:17.364Z"
     }
   ],
   "version": 1
