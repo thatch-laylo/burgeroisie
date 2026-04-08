@@ -1,0 +1,353 @@
+{
+  "members": [
+    { "id": "thatch", "name": "Thatch", "emoji": "\ud83c\udf54", "isGuest": false },
+    { "id": "ramin", "name": "Ramin", "emoji": "\ud83d\udd25", "isGuest": false },
+    { "id": "jackie", "name": "Jackie", "emoji": "\ud83d\udc51", "isGuest": false },
+    { "id": "timbo", "name": "Timbo", "emoji": "\ud83c\udfaf", "isGuest": false },
+    { "id": "skyler", "name": "Skyler", "emoji": "\u26a1", "isGuest": false },
+    { "id": "vvp", "name": "VVP", "emoji": "\ud83c\udfb8", "isGuest": false }
+  ],
+  "visits": [
+    {
+      "id": "v-001",
+      "restaurantName": "Cozy Royale",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-04-08",
+      "scores": [
+        { "memberId": "thatch", "burgerScore": 87, "ambianceScore": 0, "totalScore": 87 },
+        { "memberId": "ramin", "burgerScore": 83, "ambianceScore": 0, "totalScore": 83 }
+      ],
+      "averageScore": 85.0,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-04-08T20:00:00Z",
+      "updatedAt": "2025-04-08T20:00:00Z"
+    },
+    {
+      "id": "v-002",
+      "restaurantName": "SAA",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-04-29",
+      "scores": [
+        { "memberId": "jackie", "burgerScore": 64, "ambianceScore": 0, "totalScore": 64 },
+        { "memberId": "skyler", "burgerScore": 65, "ambianceScore": 0, "totalScore": 65 },
+        { "memberId": "thatch", "burgerScore": 61, "ambianceScore": 0, "totalScore": 61 },
+        { "memberId": "ramin", "burgerScore": 71, "ambianceScore": 0, "totalScore": 71 }
+      ],
+      "averageScore": 65.25,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-04-29T20:00:00Z",
+      "updatedAt": "2025-04-29T20:00:00Z"
+    },
+    {
+      "id": "v-003",
+      "restaurantName": "Bernie's",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-05-20",
+      "scores": [
+        { "memberId": "thatch", "burgerScore": 77, "ambianceScore": 0, "totalScore": 77 },
+        { "memberId": "ramin", "burgerScore": 87, "ambianceScore": 0, "totalScore": 87 }
+      ],
+      "averageScore": 82.0,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-05-20T20:00:00Z",
+      "updatedAt": "2025-05-20T20:00:00Z"
+    },
+    {
+      "id": "v-004",
+      "restaurantName": "DuMont",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-06-10",
+      "scores": [
+        { "memberId": "thatch", "burgerScore": 89, "ambianceScore": 0, "totalScore": 89 },
+        { "memberId": "ramin", "burgerScore": 79, "ambianceScore": 0, "totalScore": 79 }
+      ],
+      "averageScore": 84.0,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-06-10T20:00:00Z",
+      "updatedAt": "2025-06-10T20:00:00Z"
+    },
+    {
+      "id": "v-005",
+      "restaurantName": "The Lions",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-07-01",
+      "scores": [
+        { "memberId": "jackie", "burgerScore": 89, "ambianceScore": 0, "totalScore": 89 },
+        { "memberId": "ramin", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 },
+        { "memberId": "thatch", "burgerScore": 84, "ambianceScore": 0, "totalScore": 84 }
+      ],
+      "averageScore": 87.0,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-07-01T20:00:00Z",
+      "updatedAt": "2025-07-01T20:00:00Z"
+    },
+    {
+      "id": "v-006",
+      "restaurantName": "Corner Bistro",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-07-22",
+      "scores": [
+        { "memberId": "timbo", "burgerScore": 65, "ambianceScore": 0, "totalScore": 65 },
+        { "memberId": "ramin", "burgerScore": 81, "ambianceScore": 0, "totalScore": 81 },
+        { "memberId": "thatch", "burgerScore": 69, "ambianceScore": 0, "totalScore": 69 },
+        { "memberId": "guest-gabe", "burgerScore": 69, "ambianceScore": 0, "totalScore": 69 }
+      ],
+      "averageScore": 71.0,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-07-22T20:00:00Z",
+      "updatedAt": "2025-07-22T20:00:00Z"
+    },
+    {
+      "id": "v-007",
+      "restaurantName": "Allswell",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-08-12",
+      "scores": [
+        { "memberId": "thatch", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 },
+        { "memberId": "timbo", "burgerScore": 81, "ambianceScore": 0, "totalScore": 81 },
+        { "memberId": "ramin", "burgerScore": 86, "ambianceScore": 0, "totalScore": 86 },
+        { "memberId": "jackie", "burgerScore": 85, "ambianceScore": 0, "totalScore": 85 }
+      ],
+      "averageScore": 85.0,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-08-12T20:00:00Z",
+      "updatedAt": "2025-08-12T20:00:00Z"
+    },
+    {
+      "id": "v-008",
+      "restaurantName": "Au Cheval",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-09-02",
+      "scores": [
+        { "memberId": "thatch", "burgerScore": 64, "ambianceScore": 0, "totalScore": 64 },
+        { "memberId": "timbo", "burgerScore": 74, "ambianceScore": 0, "totalScore": 74 },
+        { "memberId": "jackie", "burgerScore": 68, "ambianceScore": 0, "totalScore": 68 },
+        { "memberId": "ramin", "burgerScore": 74, "ambianceScore": 0, "totalScore": 74 },
+        { "memberId": "guest-pat", "burgerScore": 89, "ambianceScore": 0, "totalScore": 89 }
+      ],
+      "averageScore": 73.8,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-09-02T20:00:00Z",
+      "updatedAt": "2025-09-02T20:00:00Z"
+    },
+    {
+      "id": "v-009",
+      "restaurantName": "Virginias",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-09-23",
+      "scores": [
+        { "memberId": "thatch", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 },
+        { "memberId": "timbo", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 },
+        { "memberId": "jackie", "burgerScore": 89, "ambianceScore": 0, "totalScore": 89 },
+        { "memberId": "ramin", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 }
+      ],
+      "averageScore": 88.25,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-09-23T20:00:00Z",
+      "updatedAt": "2025-09-23T20:00:00Z"
+    },
+    {
+      "id": "v-010",
+      "restaurantName": "Destefanos",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-10-14",
+      "scores": [
+        { "memberId": "thatch", "burgerScore": 74, "ambianceScore": 0, "totalScore": 74 },
+        { "memberId": "timbo", "burgerScore": 74, "ambianceScore": 0, "totalScore": 74 },
+        { "memberId": "jackie", "burgerScore": 85, "ambianceScore": 0, "totalScore": 85 },
+        { "memberId": "ramin", "burgerScore": 72, "ambianceScore": 0, "totalScore": 72 }
+      ],
+      "averageScore": 76.25,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-10-14T20:00:00Z",
+      "updatedAt": "2025-10-14T20:00:00Z"
+    },
+    {
+      "id": "v-011",
+      "restaurantName": "Brindle Room",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-11-04",
+      "scores": [
+        { "memberId": "timbo", "burgerScore": 87, "ambianceScore": 0, "totalScore": 87 },
+        { "memberId": "thatch", "burgerScore": 86, "ambianceScore": 0, "totalScore": 86 },
+        { "memberId": "jackie", "burgerScore": 78, "ambianceScore": 0, "totalScore": 78 },
+        { "memberId": "ramin", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 },
+        { "memberId": "skyler", "burgerScore": 85, "ambianceScore": 0, "totalScore": 85 },
+        { "memberId": "guest-mccracken", "burgerScore": 74, "ambianceScore": 0, "totalScore": 74 }
+      ],
+      "averageScore": 83.0,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-11-04T20:00:00Z",
+      "updatedAt": "2025-11-04T20:00:00Z"
+    },
+    {
+      "id": "v-012",
+      "restaurantName": "Pete's Tavern",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-11-25",
+      "scores": [
+        { "memberId": "guest-rome", "burgerScore": 76, "ambianceScore": 0, "totalScore": 76 },
+        { "memberId": "thatch", "burgerScore": 66, "ambianceScore": 0, "totalScore": 66 },
+        { "memberId": "jackie", "burgerScore": 75, "ambianceScore": 0, "totalScore": 75 },
+        { "memberId": "timbo", "burgerScore": 79, "ambianceScore": 0, "totalScore": 79 }
+      ],
+      "averageScore": 74.0,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-11-25T20:00:00Z",
+      "updatedAt": "2025-11-25T20:00:00Z"
+    },
+    {
+      "id": "v-013",
+      "restaurantName": "The Snail",
+      "neighborhood": "",
+      "address": "",
+      "date": "2025-12-16",
+      "scores": [
+        { "memberId": "thatch", "burgerScore": 90, "ambianceScore": 1, "totalScore": 91 },
+        { "memberId": "guest-mo", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 },
+        { "memberId": "vvp", "burgerScore": 90, "ambianceScore": 2, "totalScore": 92 },
+        { "memberId": "jackie", "burgerScore": 85, "ambianceScore": 0, "totalScore": 85 },
+        { "memberId": "skyler", "burgerScore": 90, "ambianceScore": 5, "totalScore": 95 },
+        { "memberId": "guest-katz", "burgerScore": 77, "ambianceScore": 0, "totalScore": 77 }
+      ],
+      "averageScore": 88.0,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2025-12-16T20:00:00Z",
+      "updatedAt": "2025-12-16T20:00:00Z"
+    },
+    {
+      "id": "v-014",
+      "restaurantName": "Red Hook Tavern",
+      "neighborhood": "",
+      "address": "",
+      "date": "2026-01-13",
+      "scores": [
+        { "memberId": "thatch", "burgerScore": 90, "ambianceScore": 2, "totalScore": 92 },
+        { "memberId": "vvp", "burgerScore": 87, "ambianceScore": 0, "totalScore": 87 },
+        { "memberId": "jackie", "burgerScore": 89, "ambianceScore": 0, "totalScore": 89 },
+        { "memberId": "ramin", "burgerScore": 90, "ambianceScore": 0, "totalScore": 90 },
+        { "memberId": "timbo", "burgerScore": 90, "ambianceScore": 5, "totalScore": 95 }
+      ],
+      "averageScore": 90.6,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2026-01-13T20:00:00Z",
+      "updatedAt": "2026-01-13T20:00:00Z"
+    },
+    {
+      "id": "v-015",
+      "restaurantName": "Gramercy Tavern",
+      "neighborhood": "",
+      "address": "",
+      "date": "2026-02-03",
+      "scores": [
+        { "memberId": "jackie", "burgerScore": 90, "ambianceScore": 2, "totalScore": 92 },
+        { "memberId": "ramin", "burgerScore": 90, "ambianceScore": 4, "totalScore": 94 }
+      ],
+      "averageScore": 93.0,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2026-02-03T20:00:00Z",
+      "updatedAt": "2026-02-03T20:00:00Z"
+    },
+    {
+      "id": "v-016",
+      "restaurantName": "Gramercy Tavern",
+      "neighborhood": "",
+      "address": "",
+      "date": "2026-02-24",
+      "scores": [
+        { "memberId": "jackie", "burgerScore": 90, "ambianceScore": 5, "totalScore": 95 },
+        { "memberId": "ramin", "burgerScore": 90, "ambianceScore": 6, "totalScore": 96 },
+        { "memberId": "timbo", "burgerScore": 90, "ambianceScore": 5, "totalScore": 95 },
+        { "memberId": "vvp", "burgerScore": 90, "ambianceScore": 3, "totalScore": 93 }
+      ],
+      "averageScore": 94.75,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2026-02-24T20:00:00Z",
+      "updatedAt": "2026-02-24T20:00:00Z"
+    },
+    {
+      "id": "v-017",
+      "restaurantName": "Little Grand",
+      "neighborhood": "",
+      "address": "",
+      "date": "2026-03-17",
+      "scores": [
+        { "memberId": "thatch", "burgerScore": 86, "ambianceScore": 0, "totalScore": 86 },
+        { "memberId": "vvp", "burgerScore": 85, "ambianceScore": 0, "totalScore": 85 },
+        { "memberId": "ramin", "burgerScore": 84, "ambianceScore": 0, "totalScore": 84 }
+      ],
+      "averageScore": 85.0,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2026-03-17T20:00:00Z",
+      "updatedAt": "2026-03-17T20:00:00Z"
+    },
+    {
+      "id": "v-018",
+      "restaurantName": "JR & Son",
+      "neighborhood": "",
+      "address": "",
+      "date": "2026-04-07",
+      "scores": [
+        { "memberId": "skyler", "burgerScore": 84, "ambianceScore": 0, "totalScore": 84 },
+        { "memberId": "ramin", "burgerScore": 83, "ambianceScore": 0, "totalScore": 83 },
+        { "memberId": "timbo", "burgerScore": 79, "ambianceScore": 0, "totalScore": 79 },
+        { "memberId": "guest-greg", "burgerScore": 75, "ambianceScore": 0, "totalScore": 75 },
+        { "memberId": "vvp", "burgerScore": 87, "ambianceScore": 0, "totalScore": 87 },
+        { "memberId": "thatch", "burgerScore": 88, "ambianceScore": 0, "totalScore": 88 }
+      ],
+      "averageScore": 82.67,
+      "comments": [],
+      "photoIds": [],
+      "burgerDescription": "",
+      "createdAt": "2026-04-07T20:00:00Z",
+      "updatedAt": "2026-04-07T20:00:00Z"
+    }
+  ],
+  "version": 1
+}
