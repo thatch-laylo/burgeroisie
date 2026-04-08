@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { uploadPhoto } from "@/lib/photos";
 import { getVisitById, updateVisit } from "@/lib/store";
 
@@ -24,5 +25,6 @@ export async function POST(request: NextRequest) {
   const photoId = await uploadPhoto(file, visitId, uploadedBy, caption);
   await updateVisit(visitId, { photoIds: [...visit.photoIds, photoId] });
 
+  revalidatePath(`/visits/${visitId}`);
   return NextResponse.json({ photoId }, { status: 201 });
 }

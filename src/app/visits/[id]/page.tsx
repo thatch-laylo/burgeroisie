@@ -4,7 +4,7 @@ import { ScoreBadge } from "@/components/ui/ScoreBadge";
 import { ScoreBar } from "@/components/ui/ScoreBar";
 import { Card } from "@/components/ui/Card";
 import { CommentSection } from "@/components/comments/CommentSection";
-import { PhotoGallery } from "@/components/visits/PhotoGallery";
+import { PhotoSection } from "@/components/visits/PhotoSection";
 import { formatMemberName } from "@/lib/constants";
 import Link from "next/link";
 
@@ -55,11 +55,16 @@ export default async function VisitDetailPage({
       </div>
 
       {/* Photos */}
-      {visit.photoIds.length > 0 && (
-        <div className="mb-8">
-          <PhotoGallery photoIds={visit.photoIds} />
-        </div>
-      )}
+      <Card hover={false} className="mb-8">
+        <h2 className="font-display text-xl font-bold mb-4">
+          Photos
+        </h2>
+        <PhotoSection
+          visitId={visit.id}
+          initialPhotoIds={visit.photoIds}
+          members={members}
+        />
+      </Card>
 
       {/* Individual Scores */}
       <Card hover={false} className="mb-8">
