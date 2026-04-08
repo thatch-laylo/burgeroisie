@@ -17,13 +17,38 @@ export function PhotoUpload({
   const [caption, setCaption] = useState("");
   const [preview, setPreview] = useState<string | null>(null);
   const [file, setFile] = useState<File | null>(null);
+  const [error, setError] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
-  function handleFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
+  async function resizeImage(file: File, maxWidth = 1200, quality = 0.8): Promise<File> {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        const scale = Math.min(1, maxWidth / img.width);
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width * scale;
+        canvas.height = img.height * scale;
+        const ctx = canvas.getContext("2d")!;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        canvas.toBlob(
+          (blob) => {
+            resolve(new File([blob!], file.name, { type: "image/jpeg" }));
+          },
+          "image/jpeg",
+          quality
+        );
+      };
+      img.src = URL.createObjectURL(file);
+    });
+  }
+
+  async function handleFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
     const f = e.target.files?.[0];
     if (!f) return;
-    setFile(f);
-    setPreview(URL.createObjectURL(f));
+    setError("");
+    const resized = await resizeImage(f);
+    setFile(resized);
+    setPreview(URL.createObjectURL(resized));
   }
 
   function clearSelection() {
@@ -52,7 +77,12 @@ export function PhotoUpload({
         const { photoId } = await res.json();
         onUploaded(photoId);
         clearSelection();
+      } else {
+        const data = await res.json().catch(() => null);
+        setError(data?.error || `Upload failed (${res.status})`);
       }
+    } catch {
+      setError("Network error. Try again.");
     } finally {
       setUploading(false);
     }
@@ -103,6 +133,9 @@ export function PhotoUpload({
               className="flex-1 rounded-lg bg-bg-elevated border border-white/10 px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:border-accent-gold/50 focus:outline-none"
             />
           </div>
+          {error && (
+            <p className="text-red-400 text-sm">{error}</p>
+          )}
           <button
             onClick={handleUpload}
             disabled={uploading}
