@@ -4,7 +4,9 @@ import * as path from "path";
 const PHOTO_DIR = path.join(process.cwd(), "data", "photos");
 
 const isNetlify =
-  process.env.NETLIFY === "true" || process.env.NETLIFY_DEV === "true";
+  process.env.NETLIFY === "true" ||
+  process.env.NETLIFY_DEV === "true" ||
+  !!process.env.DEPLOY_URL;
 
 interface PhotoMeta {
   visitId: string;

@@ -64,7 +64,9 @@ async function writeNetlify(data: BurgerData): Promise<void> {
 // --- Unified interface ---
 
 const isNetlify =
-  process.env.NETLIFY === "true" || process.env.NETLIFY_DEV === "true";
+  process.env.NETLIFY === "true" ||
+  process.env.NETLIFY_DEV === "true" ||
+  !!process.env.DEPLOY_URL;
 
 async function getData(): Promise<BurgerData> {
   return isNetlify ? readNetlify() : readLocal();
