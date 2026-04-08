@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { addComment } from "@/lib/store";
 import { addCommentSchema } from "@/lib/validators";
 
@@ -17,5 +18,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Visit not found" }, { status: 404 });
   }
 
+  revalidatePath(`/visits/${visitId}`);
   return NextResponse.json(comment, { status: 201 });
 }

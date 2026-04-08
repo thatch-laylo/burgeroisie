@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getVisitById, updateVisit } from "@/lib/store";
 
 export async function GET(
@@ -23,5 +24,8 @@ export async function PUT(
   if (!visit) {
     return NextResponse.json({ error: "Visit not found" }, { status: 404 });
   }
+  revalidatePath(`/visits/${id}`);
+  revalidatePath("/visits");
+  revalidatePath("/scoreboard");
   return NextResponse.json(visit);
 }

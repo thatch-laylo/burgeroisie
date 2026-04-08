@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { createVisit } from "@/lib/store";
 import { createVisitSchema } from "@/lib/validators";
 
@@ -17,5 +18,8 @@ export async function POST(request: NextRequest) {
   }));
 
   const visit = await createVisit({ ...rest, scores: scoredMembers });
+  revalidatePath("/visits");
+  revalidatePath("/scoreboard");
+  revalidatePath("/stats");
   return NextResponse.json(visit, { status: 201 });
 }
