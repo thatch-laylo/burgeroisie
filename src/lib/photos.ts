@@ -62,7 +62,8 @@ async function uploadNetlify(
   const { getStore } = await import("@netlify/blobs");
   const store = getStore({ name: "burgeroisie-photos", consistency: "strong" });
   const photoId = crypto.randomUUID();
-  await store.set(photoId, new Uint8Array(buffer).buffer as ArrayBuffer, { metadata: meta as unknown as Record<string, string> });
+  await store.set(`${photoId}.meta`, JSON.stringify(meta));
+  await store.set(photoId, buffer.buffer as ArrayBuffer);
   return photoId;
 }
 
@@ -71,12 +72,15 @@ async function getNetlify(
 ): Promise<{ buffer: Buffer; meta: PhotoMeta } | null> {
   const { getStore } = await import("@netlify/blobs");
   const store = getStore({ name: "burgeroisie-photos", consistency: "strong" });
-  const result = await store.getWithMetadata(photoId, { type: "arrayBuffer" });
-  if (!result) return null;
-  return {
-    buffer: Buffer.from(result.data),
-    meta: result.metadata as unknown as PhotoMeta,
-  };
+  const metaRaw = await store.get(`${photoId}.meta`, { type: "text" });
+  if (!metaRaw) return null;
+  const meta = JSON.parse(metaRaw) as PhotoMeta;
+  try {
+    const data = await store.get(photoId, { type: "arrayBuffer" });
+    return { buffer: Buffer.from(data), meta };
+  } catch {
+    return null;
+  }
 }
 
 // --- Public API ---
