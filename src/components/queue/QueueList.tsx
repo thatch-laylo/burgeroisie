@@ -38,9 +38,7 @@ export function QueueList({
     }
   }, [activeMemberId]);
 
-  const queued = [...queue]
-    .filter((q) => q.status === "queued")
-    .sort((a, b) => b.votes.length - a.votes.length || a.createdAt.localeCompare(b.createdAt));
+  const queued = queue.filter((q) => q.status === "queued");
 
   const visited = queue.filter((q) => q.status === "visited");
 
@@ -101,6 +99,36 @@ export function QueueList({
       // Rollback on error
       setQueue(initialQueue);
     }
+  }
+
+  async function handleRemove(queueItemId: string) {
+    setQueue((prev) => prev.filter((q) => q.id !== queueItemId));
+    await fetch("/api/queue/remove", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ queueItemId }),
+    });
+  }
+
+  async function handleMove(queueItemId: string, direction: "up" | "down") {
+    const idx = queued.findIndex((q) => q.id === queueItemId);
+    if (idx === -1) return;
+    const swapIdx = direction === "up" ? idx - 1 : idx + 1;
+    if (swapIdx < 0 || swapIdx >= queued.length) return;
+
+    const reordered = [...queued];
+    [reordered[idx], reordered[swapIdx]] = [reordered[swapIdx], reordered[idx]];
+
+    // Update local state with new order
+    const visited = queue.filter((q) => q.status === "visited");
+    setQueue([...reordered, ...visited]);
+
+    // Persist order
+    await fetch("/api/queue/reorder", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ orderedIds: reordered.map((q) => q.id) }),
+    });
   }
 
   async function handleMarkVisited(queueItemId: string) {
@@ -208,6 +236,11 @@ export function QueueList({
               isTop={i === 0}
               onVote={handleVote}
               onMarkVisited={handleMarkVisited}
+              onRemove={handleRemove}
+              onMoveUp={(id) => handleMove(id, "up")}
+              onMoveDown={(id) => handleMove(id, "down")}
+              canMoveUp={i > 0}
+              canMoveDown={i < queued.length - 1}
             />
           ))}
         </div>

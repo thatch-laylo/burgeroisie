@@ -10,6 +10,11 @@ export function QueueCard({
   isTop,
   onVote,
   onMarkVisited,
+  onRemove,
+  onMoveUp,
+  onMoveDown,
+  canMoveUp,
+  canMoveDown,
 }: {
   item: QueueItem;
   members: Member[];
@@ -17,6 +22,11 @@ export function QueueCard({
   isTop: boolean;
   onVote: (queueItemId: string) => void;
   onMarkVisited: (queueItemId: string) => void;
+  onRemove: (queueItemId: string) => void;
+  onMoveUp: (queueItemId: string) => void;
+  onMoveDown: (queueItemId: string) => void;
+  canMoveUp: boolean;
+  canMoveDown: boolean;
 }) {
   const memberMap = Object.fromEntries(members.map((m) => [m.id, m]));
   const hasVoted = item.votes.includes(activeMemberId);
@@ -68,12 +78,38 @@ export function QueueCard({
             );
           })}
         </div>
-        <button
-          onClick={() => onMarkVisited(item.id)}
-          className="text-xs text-text-muted hover:text-accent-gold transition-colors"
-        >
-          We went! &rarr;
-        </button>
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => onMoveUp(item.id)}
+              disabled={!canMoveUp}
+              className="text-xs text-text-muted hover:text-text-primary transition-colors disabled:opacity-20"
+              title="Move up"
+            >
+              {"\u25B2"}
+            </button>
+            <button
+              onClick={() => onMoveDown(item.id)}
+              disabled={!canMoveDown}
+              className="text-xs text-text-muted hover:text-text-primary transition-colors disabled:opacity-20"
+              title="Move down"
+            >
+              {"\u25BC"}
+            </button>
+          </div>
+          <button
+            onClick={() => onRemove(item.id)}
+            className="text-xs text-text-muted hover:text-red-400 transition-colors"
+          >
+            Remove
+          </button>
+          <button
+            onClick={() => onMarkVisited(item.id)}
+            className="text-xs text-text-muted hover:text-accent-gold transition-colors"
+          >
+            We went! &rarr;
+          </button>
+        </div>
       </div>
     </Card>
   );

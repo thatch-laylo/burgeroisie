@@ -231,6 +231,35 @@ export async function toggleQueueVote(
   return item;
 }
 
+export async function removeQueueItem(queueItemId: string): Promise<boolean> {
+  const data = await getData();
+  if (!data.queue) return false;
+  const idx = data.queue.findIndex((q) => q.id === queueItemId);
+  if (idx === -1) return false;
+  data.queue.splice(idx, 1);
+  await setData(data);
+  return true;
+}
+
+export async function reorderQueue(orderedIds: string[]): Promise<boolean> {
+  const data = await getData();
+  if (!data.queue) return false;
+  const queueMap = new Map(data.queue.map((q) => [q.id, q]));
+  const reordered: typeof data.queue = [];
+  for (const id of orderedIds) {
+    const item = queueMap.get(id);
+    if (item) reordered.push(item);
+    queueMap.delete(id);
+  }
+  // Append any items not in the ordered list (e.g. visited ones)
+  for (const item of queueMap.values()) {
+    reordered.push(item);
+  }
+  data.queue = reordered;
+  await setData(data);
+  return true;
+}
+
 export async function markQueueVisited(
   queueItemId: string,
   visitId?: string
