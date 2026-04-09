@@ -280,7 +280,6 @@ const TAG_LABELS: Record<string, string> = {
   buzzy: "\u{1F525} Buzzy",
   legendary: "\u{1F451} Legendary",
   "hidden-gem": "\u{1F48E} Hidden Gem",
-  smash: "\u{1F354} Smash",
   wagyu: "\u{1F969} Wagyu",
   "fine-dining": "\u{1F37D}\u{FE0F} Fine Dining",
   value: "\u{1F4B0} Value",
