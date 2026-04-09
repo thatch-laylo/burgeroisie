@@ -612,5 +612,21 @@
       "updatedAt": "2026-04-08T04:26:17.364Z"
     }
   ],
-  "version": 1
+  "version": 1,
+  "queue": [
+    {
+      "restaurantName": "4 Charles",
+      "neighborhood": "Manhattan",
+      "reason": "Rage bait",
+      "suggestedBy": "thatch",
+      "id": "de80bc74-2438-4f83-b75b-e711e9aa8986",
+      "votes": [
+        "thatch"
+      ],
+      "status": "queued",
+      "visitId": null,
+      "createdAt": "2026-04-09T01:58:33.057Z",
+      "updatedAt": "2026-04-09T01:58:33.057Z"
+    }
+  ]
 }
