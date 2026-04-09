@@ -1,4 +1,4 @@
-import { BurgerData, Visit, Comment } from "./types";
+import { BurgerData, Visit, Comment, QueueItem } from "./types";
 import { DEFAULT_MEMBERS } from "./constants";
 import * as fs from "fs/promises";
 import * as path from "path";
@@ -10,6 +10,7 @@ function getDefaultData(): BurgerData {
   return {
     members: DEFAULT_MEMBERS,
     visits: [],
+    queue: [],
     version: 1,
   };
 }
@@ -177,4 +178,67 @@ export async function getAllData(): Promise<BurgerData> {
 
 export async function setAllData(data: BurgerData): Promise<void> {
   return setData(data);
+}
+
+// --- Queue ---
+
+export async function getQueue(): Promise<QueueItem[]> {
+  const data = await getData();
+  return data.queue ?? [];
+}
+
+export async function addQueueItem(
+  input: Omit<QueueItem, "id" | "votes" | "status" | "visitId" | "createdAt" | "updatedAt">
+): Promise<QueueItem> {
+  const data = await getData();
+  if (!data.queue) data.queue = [];
+  const now = new Date().toISOString();
+  const item: QueueItem = {
+    ...input,
+    id: crypto.randomUUID(),
+    votes: [input.suggestedBy],
+    status: "queued",
+    visitId: null,
+    createdAt: now,
+    updatedAt: now,
+  };
+  data.queue.push(item);
+  await setData(data);
+  return item;
+}
+
+export async function toggleQueueVote(
+  queueItemId: string,
+  memberId: string
+): Promise<QueueItem | null> {
+  const data = await getData();
+  if (!data.queue) return null;
+  const item = data.queue.find((q) => q.id === queueItemId);
+  if (!item) return null;
+
+  const idx = item.votes.indexOf(memberId);
+  if (idx === -1) {
+    item.votes.push(memberId);
+  } else {
+    item.votes.splice(idx, 1);
+  }
+  item.updatedAt = new Date().toISOString();
+  await setData(data);
+  return item;
+}
+
+export async function markQueueVisited(
+  queueItemId: string,
+  visitId?: string
+): Promise<QueueItem | null> {
+  const data = await getData();
+  if (!data.queue) return null;
+  const item = data.queue.find((q) => q.id === queueItemId);
+  if (!item) return null;
+
+  item.status = "visited";
+  item.visitId = visitId ?? null;
+  item.updatedAt = new Date().toISOString();
+  await setData(data);
+  return item;
 }

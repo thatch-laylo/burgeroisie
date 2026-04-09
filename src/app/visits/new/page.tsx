@@ -7,8 +7,12 @@ export const metadata = {
   title: "New Visit | Burgeroisie",
 };
 
-export default async function NewVisitPage() {
-  const members = await getMembers();
+export default async function NewVisitPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ from?: string; name?: string; hood?: string }>;
+}) {
+  const [members, params] = await Promise.all([getMembers(), searchParams]);
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
@@ -18,7 +22,14 @@ export default async function NewVisitPage() {
       <p className="text-text-secondary mb-8">
         Where&apos;d you go? How was it? Rate it.
       </p>
-      <VisitForm members={members} />
+      <VisitForm
+        members={members}
+        prefill={params.from ? {
+          restaurantName: params.name || "",
+          neighborhood: params.hood || "",
+          fromQueueId: params.from,
+        } : undefined}
+      />
     </div>
   );
 }

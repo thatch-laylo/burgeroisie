@@ -11,15 +11,21 @@ interface ScoreEntry {
   active: boolean;
 }
 
-export function VisitForm({ members }: { members: Member[] }) {
+export function VisitForm({
+  members,
+  prefill,
+}: {
+  members: Member[];
+  prefill?: { restaurantName: string; neighborhood: string; fromQueueId: string };
+}) {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
 
   // Step 1: Restaurant info
-  const [restaurantName, setRestaurantName] = useState("");
-  const [neighborhood, setNeighborhood] = useState("");
+  const [restaurantName, setRestaurantName] = useState(prefill?.restaurantName || "");
+  const [neighborhood, setNeighborhood] = useState(prefill?.neighborhood || "");
   const [address, setAddress] = useState("");
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [burgerDescription, setBurgerDescription] = useState("");
@@ -109,6 +115,19 @@ export function VisitForm({ members }: { members: Member[] }) {
       }
 
       const visit = await res.json();
+
+      // If this visit came from the queue, mark the queue item as visited
+      if (prefill?.fromQueueId) {
+        await fetch("/api/queue/visited", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            queueItemId: prefill.fromQueueId,
+            visitId: visit.id,
+          }),
+        });
+      }
+
       router.push(`/visits/${visit.id}`);
     } catch {
       setError("Network error. Try again.");

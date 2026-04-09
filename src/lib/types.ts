@@ -32,8 +32,22 @@ export interface Visit {
   updatedAt: string;
 }
 
+export interface QueueItem {
+  id: string;
+  restaurantName: string;
+  neighborhood: string;
+  reason: string;
+  suggestedBy: string;
+  votes: string[];
+  status: "queued" | "visited";
+  visitId: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface BurgerData {
   members: Member[];
   visits: Visit[];
+  queue: QueueItem[];
   version: number;
 }
