@@ -64,17 +64,21 @@ async function writeNetlify(data: BurgerData): Promise<void> {
 
 // --- Unified interface ---
 
-const isNetlify =
-  process.env.NETLIFY === "true" ||
-  process.env.NETLIFY_DEV === "true" ||
-  !!process.env.DEPLOY_URL;
+function isNetlify(): boolean {
+  return (
+    process.env.NETLIFY === "true" ||
+    process.env.NETLIFY_DEV === "true" ||
+    !!process.env.DEPLOY_URL ||
+    !!process.env.URL
+  );
+}
 
 async function getData(): Promise<BurgerData> {
-  return isNetlify ? readNetlify() : readLocal();
+  return isNetlify() ? readNetlify() : readLocal();
 }
 
 async function setData(data: BurgerData): Promise<void> {
-  return isNetlify ? writeNetlify(data) : writeLocal(data);
+  return isNetlify() ? writeNetlify(data) : writeLocal(data);
 }
 
 // --- Public API ---

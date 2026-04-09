@@ -3,10 +3,14 @@ import * as path from "path";
 
 const PHOTO_DIR = path.join(process.cwd(), "data", "photos");
 
-const isNetlify =
-  process.env.NETLIFY === "true" ||
-  process.env.NETLIFY_DEV === "true" ||
-  !!process.env.DEPLOY_URL;
+function isNetlify(): boolean {
+  return (
+    process.env.NETLIFY === "true" ||
+    process.env.NETLIFY_DEV === "true" ||
+    !!process.env.DEPLOY_URL ||
+    !!process.env.URL
+  );
+}
 
 interface PhotoMeta {
   visitId: string;
@@ -101,13 +105,13 @@ export async function uploadPhoto(
     mimeType: file.type,
     uploadedAt: new Date().toISOString(),
   };
-  return isNetlify ? uploadNetlify(buffer, meta) : uploadLocal(buffer, meta);
+  return isNetlify() ? uploadNetlify(buffer, meta) : uploadLocal(buffer, meta);
 }
 
 export async function getPhoto(
   photoId: string
 ): Promise<{ buffer: Buffer; mimeType: string } | null> {
-  const result = isNetlify
+  const result = isNetlify()
     ? await getNetlify(photoId)
     : await getLocal(photoId);
   if (!result) return null;
