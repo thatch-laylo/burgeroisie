@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { QueueItem, Member, Visit } from "@/lib/types";
 import { QueueCard } from "./QueueCard";
+import { BURGER_RECS, BurgerRec } from "@/lib/recommendations";
 import { useRouter } from "next/navigation";
 
 export function QueueList({
@@ -212,6 +213,29 @@ export function QueueList({
         </div>
       )}
 
+      {/* Discover */}
+      <DiscoverSection
+        visits={visits}
+        queue={queue}
+        activeMemberId={activeMemberId}
+        onAdd={async (rec: BurgerRec) => {
+          const res = await fetch("/api/queue", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              restaurantName: rec.name,
+              neighborhood: rec.neighborhood,
+              reason: `${rec.vibe} (${rec.source})`,
+              suggestedBy: activeMemberId,
+            }),
+          });
+          if (res.ok) {
+            const item = await res.json();
+            setQueue((prev) => [...prev, item]);
+          }
+        }}
+      />
+
       {/* Been There */}
       {visited.length > 0 && (
         <details className="mt-8">
@@ -246,6 +270,133 @@ export function QueueList({
           </div>
         </details>
       )}
+    </div>
+  );
+}
+
+// --- Discover Section ---
+
+const TAG_LABELS: Record<string, string> = {
+  buzzy: "\u{1F525} Buzzy",
+  legendary: "\u{1F451} Legendary",
+  "hidden-gem": "\u{1F48E} Hidden Gem",
+  smash: "\u{1F354} Smash",
+  wagyu: "\u{1F969} Wagyu",
+  "fine-dining": "\u{1F37D}\u{FE0F} Fine Dining",
+  value: "\u{1F4B0} Value",
+  unique: "\u{2728} Unique",
+  classic: "\u{1F3DB}\u{FE0F} Classic",
+  exclusive: "\u{1F510} Exclusive",
+};
+
+function DiscoverSection({
+  visits,
+  queue,
+  activeMemberId,
+  onAdd,
+}: {
+  visits: Visit[];
+  queue: QueueItem[];
+  activeMemberId: string;
+  onAdd: (rec: BurgerRec) => Promise<void>;
+}) {
+  const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [addedNames, setAddedNames] = useState<Set<string>>(new Set());
+
+  // Filter out places already visited or in queue
+  const visitedNames = new Set(visits.map((v) => v.restaurantName.toLowerCase()));
+  const queuedNames = new Set(queue.map((q) => q.restaurantName.toLowerCase()));
+
+  const available = BURGER_RECS.filter(
+    (r) =>
+      !visitedNames.has(r.name.toLowerCase()) &&
+      !queuedNames.has(r.name.toLowerCase()) &&
+      !addedNames.has(r.name.toLowerCase())
+  );
+
+  const filtered = activeTag
+    ? available.filter((r) => r.tags.includes(activeTag))
+    : available;
+
+  const allTags = [...new Set(available.flatMap((r) => r.tags))];
+
+  if (available.length === 0) return null;
+
+  return (
+    <div className="mt-10 pt-8 border-t border-white/5">
+      <h2 className="font-display text-xl font-bold mb-1">
+        {"\u{1F50D}"} Discover
+      </h2>
+      <p className="text-sm text-text-muted mb-4">
+        Curated from Infatuation, Bloomberg, TimeOut &mdash; tap + to add to queue
+      </p>
+
+      {/* Tag filters */}
+      <div className="flex flex-wrap gap-2 mb-4">
+        <button
+          onClick={() => setActiveTag(null)}
+          className={`rounded-full px-3 py-1 text-xs transition-all ${
+            !activeTag
+              ? "bg-accent-gold/15 text-accent-gold ring-1 ring-accent-gold/30"
+              : "bg-white/5 text-text-muted hover:bg-white/10"
+          }`}
+        >
+          All ({available.length})
+        </button>
+        {allTags.map((tag) => (
+          <button
+            key={tag}
+            onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+            className={`rounded-full px-3 py-1 text-xs transition-all ${
+              activeTag === tag
+                ? "bg-accent-gold/15 text-accent-gold ring-1 ring-accent-gold/30"
+                : "bg-white/5 text-text-muted hover:bg-white/10"
+            }`}
+          >
+            {TAG_LABELS[tag] || tag}
+          </button>
+        ))}
+      </div>
+
+      {/* Rec cards */}
+      <div className="space-y-2">
+        {filtered.map((rec) => (
+          <div
+            key={rec.name}
+            className="flex items-start gap-3 rounded-xl border border-white/5 bg-bg-card p-4 transition-all hover:border-white/10"
+          >
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2">
+                <h3 className="font-display font-bold text-text-primary truncate">
+                  {rec.name}
+                </h3>
+                <span className="text-xs text-text-muted shrink-0">{rec.neighborhood}</span>
+              </div>
+              <p className="text-sm text-text-secondary mt-1">{rec.vibe}</p>
+              <div className="flex items-center gap-2 mt-2">
+                <span className="text-xs text-text-muted">{rec.source}</span>
+                {rec.tags.slice(0, 2).map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-white/5 px-2 py-0.5 text-xs text-text-muted"
+                  >
+                    {TAG_LABELS[tag] || tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <button
+              onClick={async () => {
+                await onAdd(rec);
+                setAddedNames((prev) => new Set(prev).add(rec.name.toLowerCase()));
+              }}
+              className="shrink-0 rounded-lg bg-accent-gold/10 px-3 py-2 text-sm font-bold text-accent-gold transition-all hover:bg-accent-gold/20"
+            >
+              + Queue
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
