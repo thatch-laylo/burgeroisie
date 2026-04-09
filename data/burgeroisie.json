@@ -41,7 +41,7 @@
     {
       "id": "v-001",
       "restaurantName": "Cozy Royale",
-      "neighborhood": "",
+      "neighborhood": "Williamsburg",
       "address": "",
       "date": "2025-04-08",
       "scores": [
@@ -85,7 +85,7 @@
     {
       "id": "v-002",
       "restaurantName": "SAA",
-      "neighborhood": "",
+      "neighborhood": "East Village",
       "address": "",
       "date": "2025-04-29",
       "scores": [
@@ -116,7 +116,7 @@
     {
       "id": "v-003",
       "restaurantName": "Bernie's",
-      "neighborhood": "",
+      "neighborhood": "Greenpoint",
       "address": "",
       "date": "2025-05-20",
       "scores": [
@@ -139,7 +139,7 @@
     {
       "id": "v-004",
       "restaurantName": "DuMont",
-      "neighborhood": "",
+      "neighborhood": "Williamsburg",
       "address": "",
       "date": "2025-06-10",
       "scores": [
@@ -162,7 +162,7 @@
     {
       "id": "v-005",
       "restaurantName": "The Lions",
-      "neighborhood": "",
+      "neighborhood": "Greenwich Village",
       "address": "",
       "date": "2025-07-01",
       "scores": [
@@ -189,7 +189,7 @@
     {
       "id": "v-006",
       "restaurantName": "Corner Bistro",
-      "neighborhood": "",
+      "neighborhood": "West Village",
       "address": "",
       "date": "2025-07-22",
       "scores": [
@@ -220,7 +220,7 @@
     {
       "id": "v-007",
       "restaurantName": "Allswell",
-      "neighborhood": "",
+      "neighborhood": "Williamsburg",
       "address": "",
       "date": "2025-08-12",
       "scores": [
@@ -251,7 +251,7 @@
     {
       "id": "v-008",
       "restaurantName": "Au Cheval",
-      "neighborhood": "",
+      "neighborhood": "Tribeca",
       "address": "",
       "date": "2025-09-02",
       "scores": [
@@ -286,7 +286,7 @@
     {
       "id": "v-009",
       "restaurantName": "Virginias",
-      "neighborhood": "",
+      "neighborhood": "East Village",
       "address": "",
       "date": "2025-09-23",
       "scores": [
@@ -317,7 +317,7 @@
     {
       "id": "v-010",
       "restaurantName": "Destefanos",
-      "neighborhood": "",
+      "neighborhood": "Williamsburg",
       "address": "",
       "date": "2025-10-14",
       "scores": [
@@ -348,7 +348,7 @@
     {
       "id": "v-011",
       "restaurantName": "Brindle Room",
-      "neighborhood": "",
+      "neighborhood": "East Village",
       "address": "",
       "date": "2025-11-04",
       "scores": [
@@ -387,7 +387,7 @@
     {
       "id": "v-012",
       "restaurantName": "Pete's Tavern",
-      "neighborhood": "",
+      "neighborhood": "Gramercy",
       "address": "",
       "date": "2025-11-25",
       "scores": [
@@ -418,7 +418,7 @@
     {
       "id": "v-013",
       "restaurantName": "The Snail",
-      "neighborhood": "",
+      "neighborhood": "Cobble Hill",
       "address": "",
       "date": "2025-12-16",
       "scores": [
@@ -457,7 +457,7 @@
     {
       "id": "v-014",
       "restaurantName": "Red Hook Tavern",
-      "neighborhood": "",
+      "neighborhood": "Red Hook",
       "address": "",
       "date": "2026-01-13",
       "scores": [
@@ -492,7 +492,7 @@
     {
       "id": "v-015",
       "restaurantName": "Gramercy Tavern",
-      "neighborhood": "",
+      "neighborhood": "Gramercy",
       "address": "",
       "date": "2026-02-03",
       "scores": [
@@ -515,7 +515,7 @@
     {
       "id": "v-016",
       "restaurantName": "Gramercy Tavern",
-      "neighborhood": "",
+      "neighborhood": "Gramercy",
       "address": "",
       "date": "2026-02-24",
       "scores": [
@@ -546,7 +546,7 @@
     {
       "id": "v-017",
       "restaurantName": "Little Grand",
-      "neighborhood": "",
+      "neighborhood": "Lower East Side",
       "address": "",
       "date": "2026-03-17",
       "scores": [
@@ -573,7 +573,7 @@
     {
       "id": "v-018",
       "restaurantName": "JR & Son",
-      "neighborhood": "",
+      "neighborhood": "Lower East Side",
       "address": "",
       "date": "2026-04-07",
       "scores": [
