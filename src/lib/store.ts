@@ -149,6 +149,15 @@ export async function updateVisit(
   return visit;
 }
 
+export async function deleteVisit(id: string): Promise<boolean> {
+  const data = await getData();
+  const idx = data.visits.findIndex((v) => v.id === id);
+  if (idx === -1) return false;
+  data.visits.splice(idx, 1);
+  await setData(data);
+  return true;
+}
+
 export async function addComment(
   visitId: string,
   memberId: string,

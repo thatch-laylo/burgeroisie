@@ -5,6 +5,7 @@ import { ScoreBar } from "@/components/ui/ScoreBar";
 import { Card } from "@/components/ui/Card";
 import { CommentSection } from "@/components/comments/CommentSection";
 import { PhotoSection } from "@/components/visits/PhotoSection";
+import { EditVisit } from "@/components/visits/EditVisit";
 import { formatMemberName } from "@/lib/constants";
 import Link from "next/link";
 
@@ -95,7 +96,7 @@ export default async function VisitDetailPage({
       </Card>
 
       {/* Comments */}
-      <Card hover={false}>
+      <Card hover={false} className="mb-8">
         <h2 className="font-display text-xl font-bold mb-4">
           Comments ({visit.comments.length})
         </h2>
@@ -105,6 +106,11 @@ export default async function VisitDetailPage({
           members={members}
         />
       </Card>
+
+      {/* Edit */}
+      <div className="flex justify-end">
+        <EditVisit visit={visit} members={members} />
+      </div>
     </div>
   );
 }

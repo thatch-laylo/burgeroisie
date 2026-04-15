@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import { getVisitById, updateVisit } from "@/lib/store";
+import { getVisitById, updateVisit, deleteVisit } from "@/lib/store";
 
 export async function GET(
   _request: NextRequest,
@@ -28,4 +28,20 @@ export async function PUT(
   revalidatePath("/visits");
   revalidatePath("/scoreboard");
   return NextResponse.json(visit);
+}
+
+export async function DELETE(
+  _request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params;
+  const removed = await deleteVisit(id);
+  if (!removed) {
+    return NextResponse.json({ error: "Visit not found" }, { status: 404 });
+  }
+  revalidatePath("/visits");
+  revalidatePath("/scoreboard");
+  revalidatePath("/stats");
+  revalidatePath("/");
+  return NextResponse.json({ ok: true });
 }
